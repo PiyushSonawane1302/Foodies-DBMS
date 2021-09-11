@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Foodies</title>
+        <link rel="icon" href="images/images/Icons8-Ios7-Food-Cutlery.ico">
+        <script src="https://kit.fontawesome.com/18c73c54bf.js" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="CSS/style.css">
+        <link rel="stylesheet" href="CSS/foodlist.css">
+      </head>
+
+      <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3" role="navigation">
+            <img class="ms-3 logo" src="images/images/logo.svg"  alt="">
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                 <div class="nav navbar-nav ">
+              
+                 </div>
+               </div>
+
+               <div class="wrap">
+                <a href="/foodies"><button class="buttonwelcome"><i class="fas fa-user pe-1"></i>Welcome <%=username%></button></a>
+              </div>
+                <div class="wrap">
+                  <a href="/foodies"><button class="button signin"><i class="fas fa-utensils pe-2"></i>FoodZone</button></a>
+                </div>
+                <div class="wrap">
+                  <a href="/cart"><button class="button"><i class="fas fa-shopping-cart pe-2"></i>Cart(<%=cartItems%>)</button></a>
+                </div>
+                <div class="wrap">
+                  <a href="/logout"><button class="btnlogout"><i class="fas fa-sign-out-alt pe-2"></i>Logout</button></a>
+                </div>
+              </div>
+
+            </nav>
+
+              <!-- <a href="/addtocart"><button class="btn btn-success m-5">Add to Cart</button></a>
+              <a href="/emptycart"><button class="btn btn-danger m-5">Empty Cart</button></a> -->
+              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="images/images/slide1.svg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/images/slide2.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+              
+                  <div class="jumbotron jumbotron-fluid p-4">
+                      <div class="container text-center">
+                        <h1 class="display-4 welcomeJumbo">Welcome To Foodies ! 👋</h1>
+                      </div>
+                  </div>
+
+
+                  <div class="container" style="width:95%;">
+                    <div class="row">
+                    <% fooditems.forEach(function(item){ %>
+                      <div class="col-md-3 col-sm-6">
+                        <div class="card-body "></div>
+                      <div class="card pb-2" align="center";>
+                        <img src="<%=item.image_path%>" class="img-responsive" alt="">
+                        <h4 class="foodcard pt-2"><%= item.foodname%></h4>
+                        <h5 class="foodcard p-1">Price : &#8377;<%= item.foodprice%> </h5>
+                        <form action="/addtocart" method="POST">
+                          <h6 class="text-dark">Quantity <input type="number" min="1" max="20" name="quantity" class="form-control" value="1" style="width: 60px;"> </h6>
+                            <input type="hidden" name="hiddenname" value="<%= item.foodname%>">
+                            <input type="hidden" name="hiddenid" value="<%= item.food_id%>">
+                            <input type="hidden" name="hiddenprice" value=" <%= item.foodprice%>">
+                            <button type="submit" name="submit" class="btn btn-success m-1">Add to Cart <i class="fas fa-cart-plus ps-2"></i></button>
+                        </form>
+                      </div>
+                    </div>  
+                    <% })%> 
+                  </div>
+                  </div>  
+
+
+
+                  <!-- footer -->
+                  <div class="container footer">
+                    <footer class="py-5">
+                      <div class="row">
+                        <div class="col-3">
+                          <img src="images/images/logodark.svg" alt="">
+                        </div>
+                        <div class="col-3">
+                          <h5>Section</h5>
+                          <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                            <li class="nav-item mb-2"><a href="aboutus.php" class="nav-link p-0 text-muted">About us</a></li>
+                            <li class="nav-item mb-2"><a href="contactus.php" class="nav-link p-0 text-muted">Contact</a></li>
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                          </ul>
+                        </div>
+                  
+                        <div class="col-3 offset-1">
+                          <form>
+                            <h5>Subscribe to our newsletter</h5>
+                            <p>Monthly digest of whats new and exciting from us.</p>
+                            <div class="d-flex w-100 gap-2">
+                              <label for="newsletter1" class="visually-hidden">Email address</label>
+                              <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                              <button class="btn btn-success" type="button">Subscribe</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                  
+                      <div class="d-flex justify-content-between py-4 my-4 border-top">
+                        <p>&copy; 2021 Company, Inc. All rights reserved.<br> <br> Project for DBMS</p>
+                     
+                        <p></p>
+                        <ul class="list-unstyled d-flex">
+                          <li class="ms-3 pe-3"><i class="fab fa-twitter fa-2x"></i></li>
+                          <li class="ms-3  pe-3"><i class="fab fa-instagram fa-2x"></i></li>
+                          <li class="ms-3  pe-3"><i class="fab fa-facebook fa-2x"></i></li>
+                        </ul>
+                      </div>
+                    </footer>
+                  </div>
+                  
+              
+               
+                  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      </body>
+     
+</html>
+
+
+
+
