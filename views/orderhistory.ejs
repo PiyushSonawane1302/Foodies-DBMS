@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders | Foodies </title>
+  <link rel="icon" href="images/images/Icons8-Ios7-Food-Cutlery.ico">
+  <script src="https://kit.fontawesome.com/18c73c54bf.js" crossorigin="anonymous"></script>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/cart.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate text-center mt-5">
+      Order History <i class="fas fa-history ps-2"></i>
+    </h2>
+
+    <div class="flex flex-col mt-4">
+      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Order Number
+                  </th>
+                  <th scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Amount Paid
+                  </th>
+                  <th scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Status
+                  </th>
+                  <th scope="col"
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Order Date
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <% orders.forEach(function(order){ %>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="flex items-center">
+                        <div class="ml-4">
+                          <div class="text-sm font-medium text-gray-900">
+                            <%=order.order_number%>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <div class="text-sm text-gray-500">
+                        &#8377;<%=order.amount_paid%>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                      <span
+                        class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                        Successful <i class="fas fa-check mt-1 ps-1"></i>
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <%=order.order_datetime%>
+                    </td>
+                  </tr>
+                  <% })%>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5 mb-5">
+      <a href="/cart"><button
+          class="btn-success pull-right me-2 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          Go Back</button></a>
+    </div>
+
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

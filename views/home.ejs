@@ -2,161 +2,168 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
-    <title>Foodies</title>
-    <link rel="icon" href="images/images/Icons8-Ios7-Food-Cutlery copy.ico">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/index.css">
-    <script type="module" src="js/anim.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foodies</title>
+  <link rel="icon" href="images/images/Icons8-Ios7-Food-Cutlery copy.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/index.css">
+  <script type="module" src="js/anim.js"></script>
 </head>
 
 <body>
 
-      <canvas class="orb-canvas"></canvas>
+  <canvas class="orb-canvas"></canvas>
 
-      <nav class="navbar navbar-expand-lg navbar-light p-3 mx-auto">
-        <div class="container-fluid">
-            <img class="ms-1 logo" src="images/images/logodark.svg"  alt="">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mt-3 p-1 me-4 me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-               <a class="ni ps-4 pe-4 nav-link active page" aria-current="page" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="ni ps-4 pe-4 nav-link page" href="aboutus.php">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="ni ps-4 pe-4 nav-link page" href="contactus.php">Contact</a>
-              </li>
+  <nav class="navbar navbar-expand-lg navbar-light p-3 mx-auto">
+    <div class="container-fluid">
+      <img class="ms-1 logo" src="images/images/logodark.svg" alt="">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mt-3 p-1 me-4 me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="ni ps-4 pe-4 nav-link active page" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="ni ps-4 pe-4 nav-link page" href="aboutus.php">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="ni ps-4 pe-4 nav-link page" href="contactus.php">Contact</a>
+          </li>
+        </ul>
+        <div class="wrap">
+          <a href="/signin"><button class="button signin">Signin</button></a>
+        </div>
+        <div class="wrap">
+          <a href="/signup"><button class="button">Signup</button></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- home first page -->
+  <div class="container-fluid home">
+    <div class="row">
+      <div class="col-6">
+        <h5 class="subhead">Easy Way to Order your food 😍</h5>
+        <h2 class="head">Order Tasty and <br> Fresh Food <span class="text-gradient"> <br> anytime !</span> </h2>
+        <h5 class="subhead">Just Confirm your order and enjoy delicious food</h5>
+        <div class="btnorder">
+          <a href="/signin"> <button class="btnordernow">Order now</button></a>
+        </div>
+      </div>
+      <div class="col-6">
+        <img class="headimg" data-aos="fade-up-left" src="images/head.svg" height="500px" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- introsection -->
+  <div class="container-fluid" id="features">
+    <canvas class="orb-canvas"></canvas>
+    <p class="featurestitle">Our Partners</p>
+
+    <div class="row">
+      <div class="feature-box col-lg-3">
+        <img data-aos="zoom-in-up" src="images/res1.svg" alt="">
+
+      </div>
+      <div class="feature-box col-3">
+        <img data-aos="zoom-in-down" src="images/res2.svg" alt="">
+
+      </div>
+      <div class="feature-box col-3">
+        <img data-aos="zoom-in-down" src="images/res3.svg" alt="">
+
+      </div>
+      <div class="feature-box col-3">
+        <img data-aos="zoom-in-up" src="images/res4.svg" alt="">
+
+      </div>
+    </div>
+
+    <!-- section -->
+    <div class="container-fluid sc">
+
+      <div class="row">
+        <div class="col-6">
+          <img id="introimg" data-aos="fade-right" data-aos-delay="300" class="introimg" src="images/introimg.svg"
+            alt="">
+        </div>
+
+        <div class="col-6">
+          <h1 class="headintro" data-aos="zoom-in-left" style="color:#10011a;">
+            Discover new Taste.
+          </h1>
+          <p class="textintro" data-aos="zoom-in-up">
+            Whether you’re looking for biryani to feed your desi cravings,
+            <br>soul comforting pizzas and burgers, or even a salad with a
+            <br>cup of chai or coffee, Foodies is the only website you need
+            <br>for the quickest doorstep delivery of your favourites. With
+            <br>over 1.5 million restaurants and 285 million ratings and reviews,
+            <br>discover the best around you in no time – only on the Foodies Website.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container footer">
+      <footer class="py-5">
+        <div class="row">
+          <div class="col-3">
+            <img src="images/images/logodark.svg" alt="">
+          </div>
+          <div class="col-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About us</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Contact</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
             </ul>
-                <div class="wrap">
-                  <a href="/signin"><button class="button signin">Signin</button></a>
-                </div>
-                <div class="wrap">
-                  <a href="/signup"><button class="button">Signup</button></a>
-                </div>
           </div>
-        </div>
-      </nav>
 
-        <!-- home first page -->
-        <div class="container-fluid home">
-          <div class="row">
-            <div class="col-6">
-              <h5 class="subhead">Easy Way to Order your food 😍</h5>
-              <h2 class="head">Order Tasty and <br> Fresh Food <span class="text-gradient"> <br> anytime !</span> </h2>
-              <h5 class="subhead">Just Confirm your order and enjoy delicious food</h5>
-              <div class="btnorder">
-                <a href="/signin"> <button class="btnordernow">Order now</button></a>
+          <div class="col-3 offset-1">
+            <form>
+              <h5>Subscribe to our newsletter</h5>
+              <p>Monthly digest of whats new and exciting from us.</p>
+              <div class="d-flex w-100 gap-2">
+                <label for="newsletter1" class="visually-hidden">Email address</label>
+                <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                <button class="btn btn-dark" type="button">Subscribe</button>
               </div>
-            </div>
-            <div class="col-6">
-              <img class="headimg"  data-aos="fade-up-left" src="images/head.svg" height="500px" alt="">
-            </div>
+            </form>
           </div>
         </div>
-  
-        <!-- introsection -->
-        <div class="container-fluid" id="features">
-        <canvas class="orb-canvas"></canvas>
-          <p class="featurestitle">Our Partners</p>
-  
-          <div class="row">
-            <div class="feature-box col-lg-3">
-              <img data-aos="zoom-in-up" src="images/res1.svg" alt="">
-             
-            </div>
-            <div  class="feature-box col-3">
-            <img data-aos="zoom-in-down" src="images/res2.svg" alt="">
-              
-            </div>
-            <div class="feature-box col-3">
-            <img data-aos="zoom-in-down" src="images/res3.svg" alt="">
-              
-            </div>
-            <div class="feature-box col-3">
-            <img data-aos="zoom-in-up" src="images/res4.svg" alt="">
-              
-          </div> 
+
+        <div class="d-flex justify-content-between py-4 my-4 border-top">
+          <p>&copy; 2021 Company, Inc. All rights reserved.<br> <br> Project for DBMS</p>
+
+          <p></p>
+          <ul class="list-unstyled d-flex">
+            <li class="ms-3 pe-3"><i class="fab fa-twitter fa-2x"></i></li>
+            <li class="ms-3  pe-3"><i class="fab fa-instagram fa-2x"></i></li>
+            <li class="ms-3  pe-3"><i class="fab fa-facebook fa-2x"></i></li>
+          </ul>
         </div>
-  
-        <!-- section -->
-        <div class="container-fluid sc">
-  
-          <div class="row">
-            <div class="col-6">
-              <img id="introimg"  data-aos="fade-right" data-aos-delay="300" class="introimg" src="images/introimg.svg" alt="">
-            </div>
-    
-            <div class="col-6">
-              <h1 class="headintro" data-aos="zoom-in-left" style="color:#10011a;">
-                Discover new Taste.
-              </h1>
-              <p class="textintro" data-aos="zoom-in-up">
-               Whether you’re looking for biryani to feed your desi cravings, 
-               <br>soul comforting pizzas and burgers, or even a salad with a 
-               <br>cup of chai or coffee, Foodies is the only website you need 
-               <br>for the quickest doorstep delivery of your favourites. With
-               <br>over 1.5 million restaurants and 285 million ratings and reviews,
-               <br>discover the best around you in no time – only on the Foodies Website.
-              </p>
-            </div>
-          </div>
-        </div>
-  
-  
-        <div class="container footer">
-          <footer class="py-5">
-            <div class="row">
-              <div class="col-3">
-                <img src="images/images/logodark.svg" alt="">
-              </div>
-              <div class="col-3">
-                <h5>Section</h5>
-                <ul class="nav flex-column">
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About us</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Contact</a></li>
-                  <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                </ul>
-              </div>
-        
-              <div class="col-3 offset-1">
-                <form>
-                  <h5>Subscribe to our newsletter</h5>
-                  <p>Monthly digest of whats new and exciting from us.</p>
-                  <div class="d-flex w-100 gap-2">
-                    <label for="newsletter1" class="visually-hidden">Email address</label>
-                    <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                    <button class="btn btn-dark" type="button">Subscribe</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-        
-            <div class="d-flex justify-content-between py-4 my-4 border-top">
-              <p>&copy; 2021 Company, Inc. All rights reserved.<br> <br> Project for DBMS</p>
-           
-              <p></p>
-              <ul class="list-unstyled d-flex">
-                <li class="ms-3 pe-3"><i class="fab fa-twitter fa-2x"></i></li>
-                <li class="ms-3  pe-3"><i class="fab fa-instagram fa-2x"></i></li>
-                <li class="ms-3  pe-3"><i class="fab fa-facebook fa-2x"></i></li>
-              </ul>
-            </div>
-          </footer>
-        </div>
-        
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <script>
-          AOS.init();
-        </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      </footer>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,107 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Signin</title>
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">  
-    <link href="CSS/signup.css" rel="stylesheet">
-    <script type="module" src="js/anim.js"></script>
-  </head>
-  <body class="text-center">
 
-         <!-- Canvas -->
-<canvas class="orb-canvas"></canvas>
-<!-- Overlay -->
-<div class="overlay">
-  <!-- Overlay inner wrapper -->
-  <div class="overlay__inner">
-    <!-- Title -->
-    <h1 class="overlay__title">
-      Hello !
-      <br>
-      <span class="text-gradient">
-        Welcome to Foodies.
-      </span>
-    </h1>
-    
-<main class="form-signin">
-  <form action="/signup" method="POST">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Signin</title>
+  <link rel="icon" href="images/images/Icons8-Ios7-Food-Cutlery.ico">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link href="CSS/signup.css" rel="stylesheet">
+  <script type="module" src="form.js"></script>
+  <script type="module" src="js/anim.js"></script>
+</head>
 
-    <h1 class="h3 mb-3 fw-normal">Create Account</h1>
-          
-    <div class="row">
+<body>
+  <canvas class="orb-canvas"></canvas>
+  <div class="container">
 
-    <div class="col-6">
-    <div class="form-floating">
-      <input id="fullname" type="text" name="fullname" class="form-control"  placeholder="Fullname">
-      <label for="floatingInput">Full Name</label>
-    </div>
-    </div>
-
-    <div class="col-6">
-    <div class="form-floating">
-      <input id="username" type="text" name="username" class="form-control" placeholder="username*">
-      <label for="floatingInput">Username</label>
-    </div>
-    </div>
-
-    </div>
-
-  
-    <br>
-    <div class="row">
-
-     <div class="col-6">
-     <div class="form-floating">
-      <input id="email" type="email" name="email" class="form-control"  placeholder="email">
-      <label for="floatingInput">Email</label>
-    </div>
-     </div>
-
-     <div class="col-6">
-     <div class="form-floating">
-      <input id="contact" type="text" name="contact" class="form-control"   placeholder="contact">
-      <label for="floatingInput">Contact</label>
-    </div>
+    <main>
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="images/images/logodark.svg" alt="">
+        <h2>Signup on Foodies</h2>
       </div>
 
+      <div class="col-lg-12 formbody">
+        <form class="needs-validation" action="/signup" method="POST">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">First name</label>
+              <input type="text" class="form-control p-2" name="firstname" id="firstName" placeholder="" value=""
+                required>
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
 
-   </div>
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Last name</label>
+              <input type="text" class="form-control p-2" name="lastname" id="lastName" placeholder="" value=""
+                required>
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
 
-  
-   <br>
-   <div class="row">
+            <div class="col-12">
+              <label for="username" class="form-label">Username</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">@</span>
+                <input type="text" class="form-control p-2" name="username" id="username" placeholder="Username"
+                  required>
+                <div class="invalid-feedback">
+                  Your username is required.
+                </div>
+              </div>
+            </div>
 
-     <div class="col-6">
-     <div class="form-floating">
-      <input id="address" type="text" name="address" class="form-control"  placeholder="address">
-      <label for="floatingInput">Address</label>
-    </div>
-     </div>
+            <div class="col-12">
+              <label for="username" class="form-label">Password</label>
+              <div class="input-group has-validation">
+                <input type="password" class="form-control p-2" name="password" id="password" placeholder="Password"
+                  required>
+                <div class="invalid-feedback">
+                  Password is required.
+                </div>
+              </div>
+            </div>
 
-     <div class="col-6">
-     <div class="form-floating">
-      <input id="password" type="password" name="password" class="form-control" placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
+
+            <div class="col-12">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control p-2" name="email" id="email" placeholder="you@example.com">
+              <div class="invalid-feedback">
+                Please enter a valid email address for shipping updates.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="address" class="form-label ">Address</label>
+              <input type="text" class="form-control p-3" name="address" id="address" placeholder="1234 Main St"
+                required>
+              <div class="invalid-feedback">
+                Please enter your delivery address.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="address" class="form-label">Contact</label>
+              <input type="tel" class="form-control p-2" name="contact" id="contact" placeholder="Contact" required>
+              <div class="invalid-feedback">
+                Please enter your Contact Details.
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="zip" class="form-label">Zip</label>
+              <input type="text" class="form-control p-2" name="zipcode" id="zip" placeholder="" required>
+              <div class="invalid-feedback">
+                Zip code required.
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button
+              class="btn-dark p-3 pull-right me-2 inline-flex items-center px-5 py-3 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mb-5 mt-4"
+              type="submit">Signup</button>
+          </div>
+
+        </form>
       </div>
 
-   </div>
+    </main>
 
 
-   <button class="w-100 btn btn-lg btn-primary"  name="submit" type="submit" >Sign up</button>
-    <br>
-    <label class="pt-2" for="">or</label>
-    <a class="ps-2 newacc" href="/signin">Already have an account ?</a>
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">&copy; 2017–2021 Company Name</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Support</a></li>
+      </ul>
+    </footer>
+  </div>
 
-   
-  </form>
-</main>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+</body>
 
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-  </body>
 </html>

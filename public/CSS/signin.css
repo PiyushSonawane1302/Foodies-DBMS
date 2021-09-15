@@ -77,7 +77,8 @@
     padding: 2rem;
     font-family: var(--font-family);
     color: var(--dark-color);
-    background: var(--bg-gradient);
+    /* background: var(--bg-gradient); */
+    background: #fff;
   }
   
   .orb-canvas {
@@ -96,11 +97,11 @@
   
   .overlay {
     max-width: 1140px;
-    max-height: 640px;
+    max-height: 600px;
     padding: 8rem 6rem;
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.375);
+    background: rgba(0, 0, 0, 0.171);
     box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
     border-radius: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.125);
@@ -114,7 +115,7 @@
     text-align: center;
     font-size: 1.875rem;
     line-height: 2.75rem;
-    padding-top: 5rem;
+    padding-top: 2rem;
     font-weight: 700;
     letter-spacing: -0.025em;
   }
@@ -134,7 +135,7 @@
   .overlay__description {
     font-size: 1rem;
     line-height: 1.75rem;
-    margin-bottom: 3rem;
+    margin-bottom: 0rem;
   }
   
   .overlay__btns {
@@ -208,7 +209,7 @@
     .overlay__title {
       font-size: 1.25rem;
       line-height: 2rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
   
     .overlay__description {

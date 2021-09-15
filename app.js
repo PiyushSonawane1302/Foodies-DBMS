@@ -34,12 +34,11 @@ var itemid;
 var quantity;
 var cartArr = []
 var cartItem;
-var total=0;
+var total = 0;
 
 app.get("/", function (req, res) {
   res.render("home");
 });
-
 
 app.get("/signin", function (req, res) {
   res.render("signin")
@@ -77,9 +76,9 @@ app.get("/foodies", function (req, res) {
 
   var sql = "SELECT * FROM fooditems ORDER BY food_id";
 
-  conn.query(sql,function(err,result){
+  conn.query(sql, function (err, result) {
     var totalItems = result.length;
-    res.render("foodlist", { username: user, cartItems: cartItems,itemCount:totalItems,fooditems:result});
+    res.render("foodlist", { username: user, cartItems: cartItems, itemCount: totalItems, fooditems: result });
   });
 
 });
@@ -89,21 +88,23 @@ app.get("/signup", function (req, res) {
   res.render("signup");
 });
 
+
 app.post("/signup", function (req, res) {
-  var fullName = req.body.fullname;
+  var fullName = req.body.firstname + " " + req.body.lastname;
   var userName = req.body.username;
   var address = req.body.address;
   var email = req.body.email;
   var contact = req.body.contact;
   var password = req.body.password;
+  var zipcode = req.body.zipcode;
 
   bcrypt.hash(password, saltRounds, function (err, hash) {
     if (err) {
       console.log(err);
     } else {
-      var sql = "INSERT INTO users (username,fullname,contact,address,password,email) VALUES ?";
+      var sql = "INSERT INTO users (username,fullname,contact,address,password,email,zipcode) VALUES ?";
       var values = [
-        [userName, fullName, contact, address, hash, email]
+        [userName, fullName, contact, address, hash, email, zipcode]
       ];
       conn.query(sql, [values], function (err, result) {
         if (err) console.log("Couldnt enter data: " + err.message);
@@ -116,74 +117,117 @@ app.post("/signup", function (req, res) {
   });
 });
 
+
 app.get("/success", function (req, res) {
   res.render("success");
 });
 
+
 app.get("/logout", function (req, res) {
-  itemCount=0;
+  itemCount = 0;
+  cartItems = 0;
+  total = 0;
+  cartArr = []
   res.redirect("/")
 });
 
-app.post("/addtocart",function(req,res){
+
+app.post("/addtocart", function (req, res) {
   cartItems++;
   itemname = req.body.hiddenname;
   itemprice = req.body.hiddenprice;
   itemid = req.body.hiddenid;
   quantity = req.body.quantity;
-  total+=Number(itemprice*quantity);
+  total += Number(itemprice * quantity);
   cartItem = {
-    itemid:itemid,
-    itemname:itemname,
-    itemprice:itemprice,
-    quantity:quantity
+    itemid: itemid,
+    itemname: itemname,
+    itemprice: itemprice,
+    quantity: quantity
   }
   cartArr.push(cartItem);
   res.redirect("/foodies");
 });
 
+
 app.get("/cart", function (req, res) {
-  res.render("cart",{cartItems:cartArr,totalPrice:total})
+  res.render("cart", { cartItems: cartArr, totalPrice: total })
+});
+
+
+app.get("/orderhistory", function (req, res) {
+
+  var sql = "SELECT * FROM orders WHERE username = ?"
+
+  conn.query(sql, [user], function (err, result) {
+    if (err) console.log("Couldnt enter data: " + err.message);
+    else {
+      res.render("orderhistory", { orders: result });
+    }
+  });
 });
 
 
 app.get("/emptycart", function (req, res) {
   cartItems = 0;
-  total =0;
+  total = 0;
   cartArr = []
   res.redirect("/foodies");
 });
 
-app.post("/remove",function(req,res){
+
+app.post("/remove", function (req, res) {
   var index = 0;
-  var price=0;
-  var quantity =0;
+  var price = 0;
+  var quantity = 0;
   index = req.body.hiddencartitemid;
   price = req.body.hiddencartitemprice;
   quantity = req.body.hiddencartitemquantity;
-  cartArr.splice(index,1);
-  var cost = price*quantity;
-  total-= cost;
+  cartArr.splice(index, 1);
+  var cost = price * quantity;
+  total -= cost;
   res.redirect("/cart");
 });
 
-app.get("/payments",function(req,res){
-  res.render("payments",{grandTotal:total});
+
+app.get("/payments", function (req, res) {
+  res.render("payments", { grandTotal: total });
 });
 
-app.get("/cod",function(req,res){
-  cartItems = 0;
-  total =0;
-  cartArr = []
+
+app.get("/cod", function (req, res) {
+
   var orderNumber = Math.floor((Math.random() * 10000000000000000000) + 1);
-  res.render("cod",{ordernumber:orderNumber});
+  var sql = "INSERT INTO orders (username,order_number,amount_paid) VALUES ? ";
+
+  var values = [
+    [user, orderNumber, total]
+  ];
+
+  if (total != 0) {
+    conn.query(sql, [values], function (err, result) {
+      if (err) console.log("Couldnt enter data: " + err.message);
+      else {
+        res.render("cod", { ordernumber: orderNumber });
+      }
+    });
+  } else {
+    res.redirect("/foodies");
+  }
+
+  total = 0;
+  cartItems = 0;
+  cartArr = []
 
 });
 
-app.get("/onlinepayment",function(req,res){
+
+app.get("/onlinepayment", function (req, res) {
   res.render("onlinepayment");
 });
+
 
 app.listen(3000, function () {
   console.log("Server Started on port 3000 !");
 });
+

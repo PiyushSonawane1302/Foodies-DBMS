@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
 
 th{
   border: none;
@@ -174,5 +173,5 @@ strong {
 }
 
 .display-4{
-  font-family: 'Palanquin Dark', sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
