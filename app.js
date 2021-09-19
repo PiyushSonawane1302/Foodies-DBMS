@@ -26,6 +26,10 @@ conn.connect(function (err) {
   console.log("Connected!");
 });
 
+
+
+
+
 var user;
 var cartItems = 0;
 var itemname;
@@ -36,9 +40,12 @@ var cartArr = []
 var cartItem;
 var total = 0;
 
+
 app.get("/", function (req, res) {
   res.render("home");
 });
+
+
 
 app.get("/signin", function (req, res) {
   res.render("signin")
@@ -72,6 +79,9 @@ app.post("/signin", function (req, res) {
 });
 
 
+
+
+
 app.get("/foodies", function (req, res) {
 
   var sql = "SELECT * FROM fooditems ORDER BY food_id";
@@ -82,6 +92,11 @@ app.get("/foodies", function (req, res) {
   });
 
 });
+
+
+
+
+
 
 
 app.get("/signup", function (req, res) {
@@ -118,9 +133,15 @@ app.post("/signup", function (req, res) {
 });
 
 
+
+
+
 app.get("/success", function (req, res) {
   res.render("success");
 });
+
+
+
 
 
 app.get("/logout", function (req, res) {
@@ -130,6 +151,9 @@ app.get("/logout", function (req, res) {
   cartArr = []
   res.redirect("/")
 });
+
+
+
 
 
 app.post("/addtocart", function (req, res) {
@@ -150,9 +174,15 @@ app.post("/addtocart", function (req, res) {
 });
 
 
+
+
+
 app.get("/cart", function (req, res) {
   res.render("cart", { cartItems: cartArr, totalPrice: total })
 });
+
+
+
 
 
 app.get("/orderhistory", function (req, res) {
@@ -168,12 +198,17 @@ app.get("/orderhistory", function (req, res) {
 });
 
 
+
+
+
 app.get("/emptycart", function (req, res) {
   cartItems = 0;
   total = 0;
   cartArr = []
   res.redirect("/foodies");
 });
+
+
 
 
 app.post("/remove", function (req, res) {
@@ -190,9 +225,15 @@ app.post("/remove", function (req, res) {
 });
 
 
+
+
+
 app.get("/payments", function (req, res) {
   res.render("payments", { grandTotal: total });
 });
+
+
+
 
 
 app.get("/cod", function (req, res) {
@@ -222,9 +263,13 @@ app.get("/cod", function (req, res) {
 });
 
 
+
+
 app.get("/onlinepayment", function (req, res) {
   res.render("onlinepayment");
 });
+
+
 
 
 app.listen(3000, function () {
