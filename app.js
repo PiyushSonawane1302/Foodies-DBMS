@@ -28,8 +28,6 @@ conn.connect(function (err) {
 
 
 
-
-
 var user;
 var cartItems = 0;
 var itemname;
@@ -45,7 +43,13 @@ app.get("/", function (req, res) {
   res.render("home");
 });
 
+app.get("/aboutus",function(req,res){
+  res.render("aboutus");
+});
 
+app.get("/contact",function(req,res){
+  res.render("contact");
+});
 
 app.get("/signin", function (req, res) {
   res.render("signin")
@@ -92,9 +96,6 @@ app.get("/foodies", function (req, res) {
   });
 
 });
-
-
-
 
 
 
@@ -227,11 +228,9 @@ app.post("/remove", function (req, res) {
 
 
 
-
 app.get("/payments", function (req, res) {
   res.render("payments", { grandTotal: total });
 });
-
 
 
 
@@ -264,11 +263,9 @@ app.get("/cod", function (req, res) {
 
 
 
-
 app.get("/onlinepayment", function (req, res) {
   res.render("onlinepayment");
 });
-
 
 
 
